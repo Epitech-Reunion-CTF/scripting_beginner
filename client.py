@@ -33,7 +33,6 @@ if __name__ == "__main__":
     client = Client()
     client.connect()
     client.resolve_calcul(client.receive())
-    print("is success: {}".format(client.receive()))
-    # close the socket
+    print(client.receive())
     sys.exit(0)
 
