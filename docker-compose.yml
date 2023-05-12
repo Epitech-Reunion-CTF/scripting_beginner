@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  server:
+    build: .
+    ports:
+      - "1028:1028"
+      - "1536-2048:1536-2048"
+
