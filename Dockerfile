@@ -3,9 +3,9 @@ FROM python
 RUN mkdir /app
 WORKDIR /app
 
-COPY ./bin/server/server.py /app/server.py
+COPY ./bin/server/main.py /app/main.py
 
-EXPOSE 1028
-EXPOSE 1536-2048
 
-CMD ["python", "/app/server.py"]
+RUN pip3 install gevent
+
+CMD ["python", "/app/main.py"]

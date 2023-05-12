@@ -56,6 +56,7 @@ class Server:
                         client_socket.send("Here's the flag: EPICTF{y0u_4r3_4_m4th3m4t1c14n}".encode())
                     else:
                         print("wrong result")
+                        self.sock.close()
             except KeyboardInterrupt:
                 print("Server closed")
                 self.sock.close()

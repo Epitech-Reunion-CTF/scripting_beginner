@@ -8,7 +8,7 @@ class Client:
         self._socket = socket()
 
     def connect(self):
-        self._socket.connect(("localhost", 4242))
+        self._socket.connect(("localhost", 1027))
 
     def send(self, data):
         self._socket.send(data.encode())
@@ -18,7 +18,11 @@ class Client:
         return self._socket.recv(1024).decode()
 
     def resolve_calcul(self, calcul):
+        calcul = calcul.replace(" ", "")
+        calcul = calcul.replace("=", "")
+        calcul = calcul.replace("?", "")
         print("calcul: {}".format(calcul))
+
         try:
             #print("{:.2f}".format(eval(calcul)))
             result = str(eval(calcul))
