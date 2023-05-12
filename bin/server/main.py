@@ -120,7 +120,6 @@ ADDR = (TCP_IP, TCP_PORT)
 
 def handle_client(conn, addr):
     
-    print(f"[NEW CONNECTION] {addr} connected.")
     n1=random.randint(1234, 256**2)
     n2=random.randint(1234, 256**2)
     n3=random.randint(1234, 256**2)
@@ -139,25 +138,21 @@ def handle_client(conn, addr):
             conn.send(f"{FLAG}".encode())
         else:
             conn.send(f"Wrong answer!".encode())
-        conn.send(f"[debug time: {time_resp} - {time_start} = {time_resp - time_start} resp: {msg.decode('utf-8').strip()}, answer: {str(result)} ]".encode())
 
 
     conn.close()
 
 def main():
-    print("[STARTING] Server is starting...")
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     server.bind(ADDR)
     server.listen()
-    print(f"[LISTENING] Server is listening on {TCP_IP}:{TCP_PORT}")
     try:
         while True:
             conn, addr = server.accept()
             thread = threading.Thread(target=handle_client, args=(conn, addr))
             thread.start()
-            print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
     
     except Exception as e:
         print(e)
