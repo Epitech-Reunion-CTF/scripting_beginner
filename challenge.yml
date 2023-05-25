@@ -32,22 +32,20 @@ flags:
 # They are generally only visible to admins
 # Accepts strings
 topics:
-    - information disclosure
-    - buffer overflow
-    - memory forensics
+    - socket server
+    - math
 
 # Tags are used to provide additional public tagging to a challenge
 # Can be removed if unused
 # Accepts strings
 tags:
-    - web
-    - sandbox
-    - js
+    - socket
+    - python
 
 # Provide paths to files from the same directory that this file is in
 # Accepts strings
 files:
-    - SystemFirstChallenge/*
+    - scripting_beginner/*
 
 # Hints are used to give players a way to buy or have suggestions. They are not
 # required but can be nice.
@@ -58,7 +56,6 @@ hints:
         content: "This hint costs points",
         cost: 10
     }
-    - This hint is free
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
